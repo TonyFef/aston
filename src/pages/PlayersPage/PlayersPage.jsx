@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-import { getApiResourse } from "../../utils/network";
-import { url, options } from "../../env/api";
-import PlayersList from "../../components/PlayersPage/PlayersList/PlayersList";
-import { withFetchError } from "../../hoc/withFetchError";
+import { getApiResourse } from "@utils/network";
+import { url, options } from "@env/api";
+import PlayersList from "@components/PlayersPage/PlayersList/PlayersList";
+import { withFetchError } from "@hoc/withFetchError";
 
 // import styles from "./PlayersPage.module.css";
 
@@ -32,6 +33,10 @@ const PlayersPage = ({ setFetchError }) => {
             {players && <PlayersList players={players} />}
         </>
     );
+};
+
+PlayersPage.propTypes = {
+    setFetchError: PropTypes.func,
 };
 
 export default withFetchError(PlayersPage);
