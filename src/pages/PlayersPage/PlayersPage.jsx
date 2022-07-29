@@ -1,24 +1,37 @@
-import styles from "./PlayersPage.module.css";
+import { useEffect, useState } from "react";
+
 import { getApiResourse } from "../../utils/network";
-import { useEffect } from "react";
-
 import { url, options } from "../../env/api";
+import PlayersList from "../../components/PlayersPage/PlayersList/PlayersList";
+import { withFetchError } from "../../hoc/withFetchError";
 
-const PlayersPage = () => {
+// import styles from "./PlayersPage.module.css";
+
+const PlayersPage = ({ setFetchError }) => {
+    const [players, setPlayers] = useState(null);
+
     const getResourse = async (url, options) => {
         const res = await getApiResourse(url, options);
 
-        const playersList = res.data.map((item) => {
-            console.log(item);
-        });
-
+        if (res) {
+            const playersList = res.data;
+            setPlayers(playersList);
+            setFetchError(false);
+        } else {
+            setFetchError(true);
+        }
     };
 
     useEffect(() => {
         getResourse(url, options);
     }, []);
 
-    return <>Players page</>;
+    return (
+        <>
+            <h1>Nav</h1>
+            {players && <PlayersList players={players} />}
+        </>
+    );
 };
 
-export default PlayersPage;
+export default withFetchError(PlayersPage);
