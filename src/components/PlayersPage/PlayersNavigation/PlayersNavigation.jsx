@@ -1,21 +1,21 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import UIButton from "@ui/UIButton";
+
 import styles from "./PlayersNavigation.module.css";
 
 const PlayersNavigation = ({ prevPage, nextPage }) => {
     return (
         <>
-            <Link to={`/players/?page=${prevPage}`} className={styles.link}>
-                <button disabled={!prevPage} className={styles.buttons}>
-                    Previous
-                </button>
-            </Link>
-            <Link to={`/players/?page=${nextPage}`} className={styles.link}>
-                <button disabled={!nextPage} className={styles.buttons}>
-                    Next
-                </button>
-            </Link>
+            <div className={styles.container}>
+                <Link to={`/players/?page=${prevPage}`} className={styles.buttons}>
+                    <UIButton text="Previous" disabled={!prevPage} />
+                </Link>
+                <Link to={`/players/?page=${nextPage}`} className={styles.buttons}>
+                    <UIButton text="Next" disabled={!nextPage} />
+                </Link>
+            </div>
         </>
     );
 };

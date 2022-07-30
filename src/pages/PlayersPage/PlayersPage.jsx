@@ -23,14 +23,14 @@ const PlayersPage = ({ setFetchError }) => {
     const getResourse = async (urlBase, urlPerPage, options) => {
         const res = await getApiResourse(urlBase, queryPage, urlPerPage, options);
 
-        console.log(prevPage);
-        console.log(res.meta.next_page);
+        // console.log(prevPage);
+        // console.log(res.meta.next_page);
 
         if (res) {
             const playersList = res.data;
             setPlayers(playersList);
 
-            setPrevPage(res.meta.current_page - 1 ? res.meta.current_page - 1 : 1);
+            setPrevPage(res.meta.current_page - 1);
             setNextPage(res.meta.next_page);
             // setCurrentPage(res.meta.current_page);
 
