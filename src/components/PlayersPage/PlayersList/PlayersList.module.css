@@ -22,12 +22,12 @@
     grid-template-columns: repeat(5, 230px);
     column-gap: 70px;
     row-gap: 30px;
-    list-style-type: none;
+    
 }
-.player__info,
+/* .player__info,
 .player__team {
     list-style-type: none;
-}
+} */
 .player__info__name {
     font-weight: bold;
     font-size: 22px;

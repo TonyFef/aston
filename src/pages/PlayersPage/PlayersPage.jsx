@@ -2,21 +2,38 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { getApiResourse } from "@utils/network";
-import { url, options } from "@env/api";
+import { urlBase, urlPerPage, options } from "@env/api";
 import PlayersList from "@components/PlayersPage/PlayersList/PlayersList";
 import { withFetchError } from "@hoc/withFetchError";
+import { useQueryParams } from "@hooks/useQueryParams";
+import PlayersNavigation from "../../components/PlayersPage/PlayersNavigation/PlayersNavigation";
 
 // import styles from "./PlayersPage.module.css";
 
 const PlayersPage = ({ setFetchError }) => {
     const [players, setPlayers] = useState(null);
+    const [prevPage, setPrevPage] = useState(0);
+    const [nextPage, setNextPage] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
 
-    const getResourse = async (url, options) => {
-        const res = await getApiResourse(url, options);
+    const query = useQueryParams();
+    const queryPage = query.get("page");
+    // console.log(queryPage);
+
+    const getResourse = async (urlBase, urlPerPage, options) => {
+        const res = await getApiResourse(urlBase, queryPage, urlPerPage, options);
+
+        console.log(prevPage);
+        console.log(res.meta.next_page);
 
         if (res) {
             const playersList = res.data;
             setPlayers(playersList);
+
+            setPrevPage(res.meta.current_page - 1 ? res.meta.current_page - 1 : 1);
+            setNextPage(res.meta.next_page);
+            // setCurrentPage(res.meta.current_page);
+
             setFetchError(false);
         } else {
             setFetchError(true);
@@ -24,12 +41,12 @@ const PlayersPage = ({ setFetchError }) => {
     };
 
     useEffect(() => {
-        getResourse(url, options);
-    }, []);
+        getResourse(urlBase, urlPerPage, options);
+    }, [queryPage]);
 
     return (
         <>
-            <h1>Nav</h1>
+            <PlayersNavigation prevPage={prevPage} nextPage={nextPage}/>
             {players && <PlayersList players={players} />}
         </>
     );

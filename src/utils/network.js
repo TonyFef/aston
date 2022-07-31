@@ -1,6 +1,6 @@
-export const getApiResourse = async (url, options) => {
+export const getApiResourse = async (urlBefore, page, urlAfter, options) => {
     try {
-        const res = await fetch(url, options)
+        const res = await fetch(`${urlBefore}${page}${urlAfter}`, options)
 
         if (!res.ok) {
             console.error('Could not fetch:', res.status)
