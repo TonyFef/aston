@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import styles from "./PlayersList.module.css";
 
 const PlayersList = ({ players }) => {
@@ -28,6 +30,10 @@ const PlayersList = ({ players }) => {
             </ul>
         </>
     );
+};
+
+PlayersList.propTypes = {
+    players: PropTypes.array,
 };
 
 export default PlayersList;
