@@ -1,0 +1,29 @@
+.person__info {
+    width: 300px;
+    padding: 20px;
+    margin-left: 30px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    color: #fff;
+}
+.person__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.person__list__item {
+    padding: 5px;
+    margin-bottom: 7px;
+}
+.person__list__item__title {
+    text-decoration: underline;
+    text-shadow: 0 0 2px #fff, 0 0 40px #6a83fb;
+}
+
+/* @media screen and (max-width: 700px) {
+    .wrapper {
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
+} */
