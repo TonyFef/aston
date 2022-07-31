@@ -1,0 +1,48 @@
+.player {
+    width: 200px;
+    height: 318px;
+    background-color: grey;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s transform;
+    /* img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        transform: translate(-15px, -15px);
+    } */
+    /* &_selected {
+        box-shadow: 0 5px 20px red;
+        transform: translateY(-8px);
+    } */
+}
+.players__container {
+    display: grid;
+    grid-template-columns: repeat(5, 230px);
+    column-gap: 70px;
+    row-gap: 30px;
+    list-style-type: none;
+}
+.player__info,
+.player__team {
+    list-style-type: none;
+}
+.player__info__name {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    text-transform: uppercase;
+    color: #fff;
+}
+/* &__content {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 650px 425px;
+        column-gap: 25px;
+        align-items: start;
+    }
+
+    &__name {
+        
+    } */
