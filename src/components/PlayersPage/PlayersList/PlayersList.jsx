@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./PlayersList.module.css";
 import SwitchTeam from "./SwitchTeam";
-
+ 
 const PlayersList = ({ players }) => {
     return (
         <ul className={styles.players__container}>
@@ -22,7 +22,7 @@ const PlayersList = ({ players }) => {
             })}
         </ul>
     );
-};
+}; 
 
 PlayersList.propTypes = {
     players: PropTypes.array,

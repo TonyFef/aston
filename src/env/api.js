@@ -1,5 +1,6 @@
 const API_ROOT = 'https://free-nba.p.rapidapi.com/';
 const API_PLAYERS = 'players';
+const API_TEAMS = 'teams';
 const API_PAGE = 0;
 const API_PERPAGE = 10;
 
@@ -16,6 +17,8 @@ export const options = {
 }
 export const urlBase = `${API_ROOT}${API_PLAYERS}?page=`
 export const urlPerPage = `&per_page=${API_PERPAGE}`
+
+export const urlTeams = `${API_ROOT}${API_TEAMS}`
 export const API_PERSON = `${API_ROOT}${API_PLAYERS}`
 
 export const getTeamImg = (teamNickname) => (`@images/${teamNickname}.png`)

@@ -2,14 +2,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    margin-bottom: 0;
+    /* padding: 0 100px; */ 
 }
 .navigation__right {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 150px;
-    width: 150px;
+    max-width: 350px;
+    width: 350px;
 }
 .navigation__right__favs,
 .navigation__right__history {
