@@ -11,6 +11,7 @@ import MainPage from "@pages/MainPage/MainPage"
 import StartPage from "@pages/StartPage/StartPage"
 import Navigation from '../Navigation/Navigation';
 import PersonPage from '@pages/PersonPage/PersonPage';
+import TeamPage from '@pages/TeamPage/TeamPage';
 
 import styles from './App.module.css'
 
@@ -26,12 +27,13 @@ const App = () => {
             <Route path='/' exact='true' element={<MainPage />} />
             <Route path='/players' exact='true' element={<PlayersPage />} />
             <Route path='/players/:id' exact='true' element={<PersonPage />} />
+            <Route path='/teams/:id' exact='true' element={<TeamPage />} />
             <Route path='/favourites' exact='true' element={<FavouritesPage />} />
             <Route path='/history' exact='true' element={<HistoryPage />} />
             <Route path='*' exact='false' element={<Navigate to="/" replace />} />
             {/* <Route path='/login' exact='true' element={<VerificationPage />} /> */}
           </>
-        ) : ( 
+        ) : (
           <>
             <Route path='/' exact='true' element={<StartPage />} />
             <Route path='/login' exact='true' element={<LoginPage />} />

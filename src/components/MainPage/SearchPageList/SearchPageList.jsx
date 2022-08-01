@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import SwitchTeam from "../../PlayersPage/PlayersList/SwitchTeam";
+import noResults from "../../../images/noresults.gif";
 
 import styles from "./SearchPageList.module.css";
 
@@ -25,7 +26,7 @@ const SearchPageList = ({ teams }) => {
                     })}
                 </ul>
             ) : (
-                <h2 className={styles.person__comment}>No results</h2>
+                <img className={styles.person__comment} src={noResults} alt="No results" />
             )}
         </>
     );

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./PersonInfo.module.css";
 
 const PersonInfo = ({ personInfo }) => {
+    console.log(personInfo);
     return (
         <div className={styles.person__info}>
             <ul className={styles.person__list}>
