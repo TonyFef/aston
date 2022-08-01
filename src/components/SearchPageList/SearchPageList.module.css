@@ -1,6 +1,6 @@
-.player {
+.searched__team {
     width: 200px;
-    background-color: grey; 
+    background-color: grey;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
     padding: 15px;
     cursor: pointer;
@@ -9,35 +9,20 @@
     margin: var(--spacing-medium);
     border-radius: 5px;
 }
-.player a { 
+.searched__team a {
     text-decoration: none;
     color: black;
     text-align: center;
 }
-.player:hover {
+.searched__team:hover {
     box-shadow: 0 5px 20px red;
     transform: translateY(-8px);
 }
-.players__container {
+.searched__container {
     display: grid;
     grid-template-columns: repeat(5, 230px);
     column-gap: 70px;
     row-gap: 30px;
     margin-top: 50px;
-}
-.team__img {
-    display: block;
-    object-fit: cover;
-    margin: 0 auto;
-    max-width: 128px;
-    max-height: 128px;
-    width: 128px;
-    height: 128px;
-} 
-.player__info__name {
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 29px;
-    text-transform: uppercase;
-    color: #fff;
+    /* padding: 0 100px; */
 }

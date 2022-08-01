@@ -13,7 +13,7 @@ const Favourites = () => {
     useEffect(() => {
         const length = Object.keys(storeData).length;
         setCounter(length);
-});
+}); 
 
     return (
         <div className={styles.favourites}>

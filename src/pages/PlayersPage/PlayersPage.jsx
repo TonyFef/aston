@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 import { getApiResourse } from "@utils/network";
 import { urlBase, urlPerPage, options } from "@env/api";
 import PlayersList from "@components/PlayersPage/PlayersList/PlayersList";
+import PlayersNavigation from "@components/PlayersPage/PlayersNavigation/PlayersNavigation";
+import Search from "@components/Search/Search";
 import { withFetchError } from "@hoc/withFetchError";
 import { useQueryParams } from "@hooks/useQueryParams";
-import PlayersNavigation from "../../components/PlayersPage/PlayersNavigation/PlayersNavigation";
 
 // import styles from "./PlayersPage.module.css";
 
@@ -23,9 +24,6 @@ const PlayersPage = ({ setFetchError }) => {
     const getResourse = async (urlBase, urlPerPage, options) => {
         const res = await getApiResourse(urlBase, queryPage, urlPerPage, options);
 
-        // console.log(prevPage);
-        // console.log(res.meta.next_page);
-
         if (res) {
             const playersList = res.data;
             setPlayers(playersList);
@@ -38,7 +36,7 @@ const PlayersPage = ({ setFetchError }) => {
         } else {
             setFetchError(true);
         }
-    }; 
+    };
 
     useEffect(() => {
         getResourse(urlBase, urlPerPage, options);
@@ -46,7 +44,8 @@ const PlayersPage = ({ setFetchError }) => {
 
     return (
         <>
-            <PlayersNavigation prevPage={prevPage} nextPage={nextPage}/>
+            <PlayersNavigation prevPage={prevPage} nextPage={nextPage} />
+            
             {players && <PlayersList players={players} />}
         </>
     );
