@@ -1,0 +1,35 @@
+.context__text {
+    margin: 0 auto;
+    max-width: 500px;
+    color: white;
+    margin-top: 100px;
+}
+.context__buttons {
+    display: flex;
+    margin: 0 auto;
+    max-width: 500px;
+    justify-content: space-between;
+}
+.context__button {
+    padding: 10px 15px;
+    font-family: "Mouse Memoirs", sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.context__button__logo{
+    background: linear-gradient(45deg, #db7878, #56a7cd);
+}
+.context__button__jordan{
+    background: linear-gradient(45deg, #632424, #f48c95);
+}
+.context__button__bryant{
+    background: linear-gradient(45deg, #e5d439, #565353);
+}
+.context__button__lebron{
+    background: linear-gradient(45deg, #ead80b, #e80909);
+}
+.context__button__curry{
+    background: linear-gradient(45deg, #ead80b, #2137dd);
+}

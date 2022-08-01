@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { store } from '@store/store';
 import App from '@components/App/App';
+import BgImageProvider from '@context/BgImageProvider'
 
 import './index.css';
 
@@ -15,7 +16,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <BgImageProvider>
+          <App />
+        </BgImageProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

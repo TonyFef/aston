@@ -36,4 +36,5 @@
 .form__error__text {
     width: 100%;
     color: rosybrown;
+    margin-bottom: 10px;
 }
