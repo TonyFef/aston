@@ -28,6 +28,7 @@ import NYK from '@images/Knicks.png'
 import CHI from '@images/Bulls.png'
 import IND from '@images/Pacers.png'
 import OKC from '@images/Thunder.png'
+import TOR from '@images/Raptors.png'
 
 import styles from './PlayersList.module.css'
 
@@ -89,6 +90,8 @@ const SwitchTeam = (teamNickname) => {
             return (<img className={styles.team__img} src={IND} alt={teamNickname} />)
         case 'Thunder':
             return (<img className={styles.team__img} src={OKC} alt={teamNickname} />)
+        case 'Raptors':
+            return (<img className={styles.team__img} src={TOR} alt={teamNickname} />)
         default:
             break;
     }

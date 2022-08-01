@@ -2,22 +2,16 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 import PlayersPage from '@pages/PlayersPage/PlayersPage';
-import VerificationPage from '../../pages/VerificationPage/VerificationPage';
+import VerificationPage from '@pages/VerificationPage/VerificationPage';
+import FavouritesPage from '@pages/FavouritesPage/FavouritesPage';
+import HistoryPage from '@pages/HistoryPage/HistoryPage';
 import Navigation from '../Navigation/Navigation';
 
 import styles from './App.module.css'
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-
-// import { options } from '../../env/api';
+import NotFoundPage from '@pages/NotFoundPage/NotFoundPage';
+import PersonPage from '@pages/PersonPage/PersonPage';
 
 const App = () => {
-  // const API_ROOT = 'https://free-nba.p.rapidapi.com/';
-  // const API_PLAYERS = 'players';
-  // const API_PAGE = 0;
-  // const API_PERPAGE = 10;
-  // fetch(`${API_ROOT}${API_PLAYERS}?page=1&per_page=${API_PERPAGE}`, options).then(res => res.json()).then(data => {
-  //   console.log(data);
-  // })
 
   return (
     <div className={styles.header}>
@@ -25,15 +19,12 @@ const App = () => {
       <Routes>
         <Route path='/' exact='true' element={<Navigate to='/players/?page=1' replace />} />
         <Route path='/players' exact='true' element={<PlayersPage />} />
-        <Route path='/favourites' exact='true' />
-        <Route path='/history' exact='true' />
+        <Route path='/players/:id' exact='true' element={<PersonPage />} />
+        <Route path='/favourites' exact='true' element={<FavouritesPage />} />
+        <Route path='/history' exact='true' element={<HistoryPage />} />
         <Route path='*' exact='false' element={<NotFoundPage />} />
         <Route path='/login' exact='true' element={<VerificationPage />} />
       </Routes>
-
-
-
-      {/* <PlayersPage /> */}
     </div>
   );
 }

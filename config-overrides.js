@@ -10,6 +10,7 @@ module.exports = function override(config, env) {
         '@pages': 'src/pages',
         '@images': 'src/images',
         '@hooks': 'src/hooks',
+        '@store': 'src/store',
     })(config);
 
     return config;

@@ -38,7 +38,7 @@ const PlayersPage = ({ setFetchError }) => {
         } else {
             setFetchError(true);
         }
-    };
+    }; 
 
     useEffect(() => {
         getResourse(urlBase, urlPerPage, options);

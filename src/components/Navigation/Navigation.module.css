@@ -2,13 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 50px;
+    padding: 0 100px;
 }
 .navigation__right {
     display: flex;
     justify-content: space-between;
-    max-width: 10%;
-    /* margin-right: 50px; */
+    align-items: center;
+    max-width: 150px;
+    width: 150px;
 }
 .navigation__right__favs,
 .navigation__right__history {
