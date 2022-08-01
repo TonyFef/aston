@@ -1,14 +1,16 @@
 import { NavLink } from "react-router-dom";
 
-import logo from "../../images/logo.png";
-import Favourites from "../Favourites/Favourites";
-import History from "../History/History";
-import LogOut from "../LogOut/LogOut";
-import Players from "../Players/Players";
+import logo from "@images/logo.png";
+import Favourites from "./Favourites/Favourites";
+import History from "./History/History";
+import LogOut from "./LogOut/LogOut";
+import Players from "./Players/Players";
+import LogIn from "./LogIn/LogIn";
 
 import styles from "./Navigation.module.css";
+import SignUp from "./SignUp/SignUp";
 
-const Navigation = () => {
+const Navigation = ({ isLogin }) => {
     return (
         <>
             <ul className={styles.navigation}>
@@ -20,17 +22,20 @@ const Navigation = () => {
                     </li>
                 </div>
                 <div className={styles.navigation__right}>
-                    <Players />
-                    <History />
-                    <Favourites />
-                    <LogOut />
+                    {isLogin ? (
+                        <>
+                            <Players />
+                            <History />
+                            <Favourites />
+                            <LogOut />
+                        </>
+                    ) : (
+                        <>
+                            <LogIn />
+                            <SignUp />
+                        </>
+                    )}
                 </div>
-
-                {/* <li>
-                    <NavLink to="/login" exact="true">
-                        Login
-                    </NavLink>
-                </li> */}
             </ul>
         </>
     );

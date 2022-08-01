@@ -2,8 +2,15 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import toolkitReducer from "./toolkitReducer";
 import { setLocalStorage } from "@utils/localStorage";
 
+import signedUsersSlice from './slices/signedUsersSlice'
+import loginSlice from "./slices/loginSlice";
+import userSlice from "./slices/userSlice";
+
 const rootReducer = combineReducers({
-    toolkit: toolkitReducer
+    toolkit: toolkitReducer,
+    users: signedUsersSlice,
+    user: userSlice,
+    isLogin: loginSlice
 })
 
 export const store = configureStore({
@@ -12,5 +19,5 @@ export const store = configureStore({
 
 store.subscribe(() => {
     setLocalStorage('store', store.getState(toolkitReducer))
-    // console.log(store.getState(toolkitReducer));
+    setLocalStorage('user', store.getState(userSlice))
 })

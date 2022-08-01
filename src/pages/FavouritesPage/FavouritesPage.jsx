@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import SwitchTeam from "@components/PlayersPage/PlayersList/SwitchTeam";
-
-import styles from "./FavouritesPage.module.css";
+import FavouritePlayersList from "../../components/FavouritesPage/FavouritePlayersList/FavouritePlayersList";
 
 const FavouritesPage = () => {
     const [players, setPlayers] = useState([]);
@@ -24,20 +22,7 @@ const FavouritesPage = () => {
         }
     }, []);
 
-    return (
-        <ul className={styles.players__container}>
-            {players.map(({ id, name, team }) => {
-                const teamNickname = team;
-
-                return (
-                    <li className={styles.player} key={id}>
-                        {SwitchTeam(teamNickname)}
-                        <p>{name}</p>
-                    </li>
-                );
-            })}
-        </ul>
-    );
+    return <FavouritePlayersList players={players} />;
 };
 
 export default FavouritesPage;
