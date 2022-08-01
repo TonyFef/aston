@@ -54,7 +54,6 @@ const PersonPage = ({ setFetchError }) => {
 
     return (
         <div className={styles.wrapper}>
-
             <div className={styles.person__container}>
                 <PersonLogo id={personId} name={personName} setPersonIsLiked={setPersonIsLiked} personIsLiked={personIsLiked} team={personTeam} />
                 {personInfo && <PersonInfo personInfo={personInfo} />}
