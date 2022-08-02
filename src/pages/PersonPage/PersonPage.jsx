@@ -17,7 +17,7 @@ const PersonPage = ({ setFetchError }) => {
     const [personTeam, setPersonTeam] = useState(null);
     const [personIsLiked, setPersonIsLiked] = useState(false);
 
-    const storeData = useSelector((state) => state.toolkit);
+    const storeData = useSelector((state) => state.favourites);
 
     const urlArray = window.location.href.split("/");
     const id = urlArray[urlArray.length - 1];

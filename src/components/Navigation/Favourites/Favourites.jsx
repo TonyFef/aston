@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import FavouritesContainer from "./FavouritesContainer";
 
 const Favourites = () => {
-    const [counter, setCounter] = useState();
-    const storeData = useSelector((state) => state.toolkit);
+    const [counter, setCounter] = useState(null);
+    const storeData = useSelector((state) => state.favourites);
 
     useEffect(() => {
         const length = Object.keys(storeData).length;

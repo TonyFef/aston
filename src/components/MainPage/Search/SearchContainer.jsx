@@ -5,17 +5,19 @@ import UIInput from "@ui/UIInput/UIInput";
 
 import styles from "./Search.module.css";
 
-const SearchContainer = ({ inputValue, handleInputChange, foundedTeams }) => {
+const SearchContainer = ({ inputValue, handleInputChange, foundedTeams, handleActiveChange, inputIsActive }) => {
+    console.log();
     return (
         <>
             <UIInput
                 type="text"
                 value={inputValue}
                 handleInputChange={handleInputChange}
+                handleActiveChange={handleActiveChange}
                 placeholder="Enter team's name"
                 classes={styles.search__input}
             />
-            <SearchPageList teams={foundedTeams} />
+            <SearchPageList teams={foundedTeams} inputIsActive={inputIsActive} />
         </>
     );
 };

@@ -1,26 +1,35 @@
 import { useSelector, useDispatch } from "react-redux";
 
 import { login } from "@store/slices/loginSlice";
+import { setPlayersToFavourite } from "@store/slices/favouriitesSlice";
+import { getLocalStorage } from "@utils/localStorage";
 import Verification from "@components/Verification/Verification";
 
-
 const LoginPage = () => {
-    const storeDataUsers = useSelector((state) => state.users);
     const storeDataUser = useSelector((state) => state.user);
+    const storeDataUsers = useSelector((state) => state.users);
+    const allUsersInfo = getLocalStorage("userInfo");
 
     const dispatch = useDispatch();
 
     const isLoginHandler = () => {
-        const previouslySignedUserArray = storeDataUsers.users.filter((item) => {
-            return item.email === storeDataUser.user.email && item.password === storeDataUser.user.password;
+        const checkAllUsersArray = allUsersInfo.filter(({ user }) => {
+            return user.email === storeDataUser.email && user.password === storeDataUser.password;
         });
 
-        console.log(previouslySignedUserArray);
-
-        if (previouslySignedUserArray.length === 1) {
+        if (checkAllUsersArray.length === 1) {
+            dispatch(setPlayersToFavourite(checkAllUsersArray[0].favourites));
             dispatch(login());
         } else {
-            alert("No such user... Please check email or password");
+            const checkStoreDataUsersArray = storeDataUsers.filter((item) => {
+                return item.email === storeDataUser.email && item.password === storeDataUser.password;
+            });
+
+            if (checkStoreDataUsersArray.length === 1) {
+                dispatch(login());
+            } else {
+                alert("No such user... Please check email or password");
+            }
         }
     };
 

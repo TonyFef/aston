@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
+import { getLocalStorage } from "@utils/localStorage";
+
 import PlayersPage from '@pages/PlayersPage/PlayersPage';
 import LoginPage from '@pages/LoginPage/LoginPage';
 import SignupPage from '@pages/SignupPage/SignupPage';
@@ -17,12 +19,13 @@ import styles from './App.module.css'
 
 const App = () => {
   const storeData = useSelector((state) => state.isLogin);
+  const storeDataUsers = useSelector((state) => state.users);
 
   return (
     <div className={styles.header}>
-      <Navigation isLogin={storeData.isLogin} />
+      <Navigation isLogin={storeData} />
       <Routes>
-        {storeData.isLogin ? (
+        {storeData ? (
           <>
             <Route path='/' exact='true' element={<MainPage />} />
             <Route path='/players' exact='true' element={<PlayersPage />} />

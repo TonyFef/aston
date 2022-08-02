@@ -11,6 +11,7 @@ import SearchContainer from "./SearchContainer";
 const Search = ({ setFetchError }) => {
     const [inputValue, setInputValue] = useState("");
     const [foundedTeams, setFoundedTeams] = useState([]);
+    const [inputIsActive, setInputIsActive] = useState(false);
 
     const getResponse = async (param) => {
         const res = await getAllTeams(urlTeams, options);
@@ -42,9 +43,19 @@ const Search = ({ setFetchError }) => {
         debouncedGetResponse(value);
     };
 
+    const handleActiveChange = () => {
+        setInputIsActive(true);
+    };
+
     return (
         <>
-            <SearchContainer inputValue={inputValue} handleInputChange={handleInputChange} foundedTeams={foundedTeams} />
+            <SearchContainer
+                inputValue={inputValue}
+                handleInputChange={handleInputChange}
+                handleActiveChange={handleActiveChange}
+                foundedTeams={foundedTeams}
+                inputIsActive={inputIsActive}
+            />
         </>
     );
 };

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
-import { setPlayerToFavourite, removePlayerFromFavourite } from "@store/toolkitReducer";
+import { setPlayerToFavourite, removePlayerFromFavourite } from "@store/slices/favouriitesSlice";
 import PersonLogoContainer from "./PersonLogoContainer";
 
 const PersonLogo = ({ id, name, setPersonIsLiked, personIsLiked, team }) => {
