@@ -25,8 +25,11 @@
     row-gap: 30px;
     margin-top: 50px;
 }
-.searched__team__name{
+.searched__team__name {
     font-size: 24px;
     margin-bottom: 0;
     color: white;
+}
+.person__comment {
+    margin-top: 50px;
 }

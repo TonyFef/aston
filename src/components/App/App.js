@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
+import { getLocalStorage } from "@utils/localStorage";
+
 import PlayersPage from '@pages/PlayersPage/PlayersPage';
 import LoginPage from '@pages/LoginPage/LoginPage';
 import SignupPage from '@pages/SignupPage/SignupPage';
@@ -11,27 +13,30 @@ import MainPage from "@pages/MainPage/MainPage"
 import StartPage from "@pages/StartPage/StartPage"
 import Navigation from '../Navigation/Navigation';
 import PersonPage from '@pages/PersonPage/PersonPage';
+import TeamPage from '@pages/TeamPage/TeamPage';
 
 import styles from './App.module.css'
 
 const App = () => {
   const storeData = useSelector((state) => state.isLogin);
+  const storeDataUsers = useSelector((state) => state.users);
 
   return (
     <div className={styles.header}>
-      <Navigation isLogin={storeData.isLogin} />
+      <Navigation isLogin={storeData} />
       <Routes>
-        {storeData.isLogin ? (
+        {storeData ? (
           <>
             <Route path='/' exact='true' element={<MainPage />} />
             <Route path='/players' exact='true' element={<PlayersPage />} />
             <Route path='/players/:id' exact='true' element={<PersonPage />} />
+            <Route path='/teams/:id' exact='true' element={<TeamPage />} />
             <Route path='/favourites' exact='true' element={<FavouritesPage />} />
             <Route path='/history' exact='true' element={<HistoryPage />} />
             <Route path='*' exact='false' element={<Navigate to="/" replace />} />
             {/* <Route path='/login' exact='true' element={<VerificationPage />} /> */}
           </>
-        ) : ( 
+        ) : (
           <>
             <Route path='/' exact='true' element={<StartPage />} />
             <Route path='/login' exact='true' element={<LoginPage />} />

@@ -1,14 +1,13 @@
+import { getLocalStorage } from "@utils/localStorage";
+
 const { createSlice } = require("@reduxjs/toolkit");
 
 const signedUsersSlice = createSlice({
     name: 'signedUsersSlice',
-    initialState: {
-        users: [{ email: 'test@test.ru', password: '123123' }, { email: 'test@test111.ru', password: '123123' }]
-    },
+    initialState: Array.isArray(getLocalStorage('users')) ? getLocalStorage('users') : [],
     reducers: {
         signUser(state, action) {
-            console.log(action.payload.user);
-            state.users.push(action.payload.user)
+            state.push(action.payload)
         }
     }
 })

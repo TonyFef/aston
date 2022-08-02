@@ -1,16 +1,16 @@
+import { getLocalStorage } from "@utils/localStorage";
+
 const { createSlice } = require("@reduxjs/toolkit");
 
 const loginSlice = createSlice({
     name: 'loginSlice',
-    initialState: {
-        isLogin: true
-    },
+    initialState: typeof getLocalStorage('isLogin') === 'object' ? false : getLocalStorage('isLogin'),
     reducers: {
         login(state) {
-            state.isLogin = true
+            return state = true
         },
         logout(state) {
-            state.isLogin = false
+            return state = false
         },
     }
 })

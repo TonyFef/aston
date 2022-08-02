@@ -5,7 +5,10 @@ import FavouritePlayersList from "../../components/FavouritesPage/FavouritePlaye
 
 const FavouritesPage = () => {
     const [players, setPlayers] = useState([]);
-    const storeData = useSelector((state) => state.toolkit);
+    const storeData = useSelector((state) => state.favourites);
+
+    // console.log(storeData);
+
 
     useEffect(() => {
         const arr = Object.entries(storeData);

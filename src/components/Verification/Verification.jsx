@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { addUser } from "@store/slices/userSlice";
 import VerificationContainer from "./VerificationContainer";
 
-const Verification = ({ isLoginHandler, isSignupHandler }) => {
+const Verification = ({ isLoginHandler, isSignupHandler, action, completed }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [clicked, setClicked] = useState(false);
 
     const [emailIsActive, setEmailIsActive] = useState(false);
     const [passwordIsActive, setPasswordIsActive] = useState(false);
@@ -67,18 +68,23 @@ const Verification = ({ isLoginHandler, isSignupHandler }) => {
 
     return (
         <VerificationContainer
+            action={action}
+            completed={completed}
             isSignupHandler={isSignupHandler}
             isLoginHandler={isLoginHandler}
             emailIsActive={emailIsActive}
             emailError={emailError}
             email={email}
             emailHandler={emailHandler}
+
             blurHandler={blurHandler}
             password={password}
             passwordIsActive={passwordIsActive}
             passwordError={passwordError}
             passwordHandler={passwordHandler}
             success={success}
+            clicked={clicked}
+            setClicked={setClicked}
         />
     );
 };
@@ -86,6 +92,8 @@ const Verification = ({ isLoginHandler, isSignupHandler }) => {
 Verification.propTypes = {
     isLoginHandler: PropTypes.func,
     isSignupHandler: PropTypes.func,
+    action: PropTypes.string,
+    completed: PropTypes.bool,
 };
 
 export default Verification;

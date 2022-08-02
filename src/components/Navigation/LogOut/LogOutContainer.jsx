@@ -9,8 +9,8 @@ const LogOutContainer = ({ onlogoutHandler }) => {
     return (
         <>
             <div className={styles.logout}>
-                <Link to="/favourites">
-                    <img src={icon} alt="favourites icon" className={styles.logout__icon} onClick={onlogoutHandler} />
+                <Link to="/">
+                    <img src={icon} alt="Logout icon" className={styles.logout__icon} onClick={onlogoutHandler} />
                 </Link>
             </div>
         </>
