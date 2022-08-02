@@ -10,7 +10,8 @@ const PersonInfo = ({ personInfo }) => {
                     return (
                         data && (
                             <li className={styles.person__list__item} key={title}>
-                                <span className={styles.person__list__item__title}>{title}</span>: {data}
+                                <span className={styles.person__list__item__title}>{`${title}:`}</span>
+                                &nbsp;&nbsp;&nbsp;{data}
                             </li>
                         )
                     );

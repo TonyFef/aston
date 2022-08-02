@@ -43,7 +43,10 @@ const PersonPage = ({ setFetchError }) => {
                 setPersonName(`${res.first_name} ${res.last_name}`);
                 setPersonTeam(res.team.name);
 
-                storeData[id] ? setPersonIsLiked(true) : setPersonIsLiked(false);
+                const x = Boolean(storeData[id]);
+                setPersonIsLiked(x);
+
+                // storeData[id] ? setPersonIsLiked(true) : setPersonIsLiked(false);
 
                 setFetchError(false);
             } else {

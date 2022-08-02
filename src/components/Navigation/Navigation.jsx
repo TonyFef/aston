@@ -1,42 +1,44 @@
-import { NavLink } from "react-router-dom";
+import { useImage, IMAGE_LOGO, IMAGE_BRYANT, IMAGE_JORDAN, IMAGE_LEBRON, IMAGE_CURRY } from "@context/BgImageProvider";
 
 import logo from "@images/logo.png";
-import Favourites from "./Favourites/Favourites";
-import History from "./History/History";
-import LogOut from "./LogOut/LogOut";
-import Players from "./Players/Players";
-import LogIn from "./LogIn/LogIn";
+import bryant from "@images/bryant.png";
+import curry from "@images/curry.png";
+import jordan from "@images/jordan.png";
+import lebron from "@images/lebron.png";
 
-import styles from "./Navigation.module.css";
-import SignUp from "./SignUp/SignUp";
+import { useEffect, useState } from "react";
+import NavigationContainer from "./NavigationContainer";
 
 const Navigation = ({ isLogin }) => {
+    const [icon, setIcon] = useState(logo);
+
+    const isImage = useImage();
+
+    useEffect(() => {
+        switch (isImage.image) {
+            case IMAGE_LOGO:
+                setIcon(logo);
+                break;
+            case IMAGE_BRYANT:
+                setIcon(bryant);
+                break;
+            case IMAGE_JORDAN:
+                setIcon(jordan);
+                break;
+            case IMAGE_LEBRON:
+                setIcon(lebron);
+                break;
+            case IMAGE_CURRY:
+                setIcon(curry);
+                break;
+            default:
+                break;
+        }
+    }, [isImage]);
+
     return (
         <>
-            <ul className={styles.navigation}>
-                <div className={styles.navigation__left}>
-                    <li className={styles.navigation__logo}>
-                        <NavLink to="/">
-                            <img src={logo} alt="logo" />
-                        </NavLink>
-                    </li>
-                </div>
-                <div className={styles.navigation__right}>
-                    {isLogin ? (
-                        <>
-                            <Players />
-                            <History />
-                            <Favourites />
-                            <LogOut />
-                        </>
-                    ) : (
-                        <>
-                            <LogIn />
-                            <SignUp />
-                        </>
-                    )}
-                </div>
-            </ul>
+            <NavigationContainer icon={icon} isLogin={isLogin} />
         </>
     );
 };

@@ -1,9 +1,14 @@
 .wrapper {
+    display: flex;
     margin-top: 45px;
+    justify-content: center;
 }
 .person__container {
     display: flex;
     flex-wrap: wrap;
+    /* align-self: center;
+    justify-self: center; */
+    /* margin: 0 auto; */
     /* border-left: 5px solid var(--color-name); */
     /* border-radius: var(--border-radius-small); */
     /* padding: var(--spacing-medium); */

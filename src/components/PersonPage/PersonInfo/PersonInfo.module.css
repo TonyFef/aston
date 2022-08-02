@@ -16,8 +16,10 @@
     margin-bottom: 7px;
 }
 .person__list__item__title {
-    text-decoration: underline;
-    text-shadow: 0 0 2px #fff, 0 0 40px #6a83fb;
+    color: rgb(183, 103, 103);
+    font-style: italic;
+    text-decoration: none;
+    /* text-shadow: 0 0 0.5px #fff, 0 0 40px rgba(75, 33, 33, 1); */
 }
 
 /* @media screen and (max-width: 700px) {
