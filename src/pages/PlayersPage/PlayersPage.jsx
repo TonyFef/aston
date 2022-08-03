@@ -8,6 +8,8 @@ import PlayersNavigation from "@components/PlayersPage/PlayersNavigation/Players
 import { withFetchError } from "@hoc/withFetchError";
 import { useQueryParams } from "@hooks/useQueryParams";
 
+import { ErrorBoundary } from "../../components/ErrorBoundary/ErrorBoundary";
+
 const PlayersPage = ({ setFetchError }) => {
     const [players, setPlayers] = useState(null);
     const [prevPage, setPrevPage] = useState(0);
@@ -38,8 +40,9 @@ const PlayersPage = ({ setFetchError }) => {
 
     return (
         <>
-            <PlayersNavigation prevPage={prevPage} nextPage={nextPage} />
-            {players && <PlayersList players={players} />}
+                <PlayersNavigation prevPage={prevPage} nextPage={nextPage} />
+                {players && <PlayersList players={players} />}
+            
         </>
     );
 };

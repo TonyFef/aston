@@ -10,7 +10,7 @@ import SignUp from "./SignUp/SignUp";
 
 import styles from "./Navigation.module.css";
 
-const NavigationContainer = ({ icon, isLogin }) => {
+const NavigationContainer = ({ icon, isLogin, storeDataUserLogin }) => {
     return (
         <>
             <ul className={styles.navigation}>
@@ -20,6 +20,9 @@ const NavigationContainer = ({ icon, isLogin }) => {
                             <img src={icon} alt="logo" />
                         </NavLink>
                     </li>
+                </div>
+                <div className={styles.navigation__center}>
+                    <li className={styles.navigation__login}>{storeDataUserLogin}</li>
                 </div>
                 <div className={styles.navigation__right}>
                     {isLogin ? (
@@ -42,7 +45,9 @@ const NavigationContainer = ({ icon, isLogin }) => {
 };
 
 NavigationContainer.propTypes = {
-    test: PropTypes.string,
+    icon: PropTypes.string,
+    isLogin: PropTypes.bool,
+    storeDataUserLogin: PropTypes.string,
 };
 
 export default NavigationContainer;

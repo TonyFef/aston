@@ -1,9 +1,15 @@
 // import PropTypes from "prop-types";
 
+import HistoryPageList from "../../components/HistoryPageList/HistoryPageList";
+
 import styles from "./HistoryPage.module.css";
 
 const HistoryPage = () => {
-    return <></>;
+    return (
+        <>
+            <HistoryPageList />
+        </>
+    );
 };
 
 // HistoryPage.propTypes = {

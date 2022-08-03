@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { ErrorBoundary } from "../../ErrorBoundary/ErrorBoundary";
 
 import styles from "./PlayersList.module.css";
 import SwitchTeam from "./SwitchTeam";
- 
+
 const PlayersList = ({ players }) => {
+    // players = {};
     return (
         <ul className={styles.players__container}>
             {players.map(({ id, first_name, last_name, team }) => {
@@ -21,11 +23,12 @@ const PlayersList = ({ players }) => {
                 );
             })}
         </ul>
+        // </ErrorBoundary>
     );
-}; 
+};
 
 PlayersList.propTypes = {
-    players: PropTypes.array,
+    // players: PropTypes.array,
 };
 
 export default PlayersList;
