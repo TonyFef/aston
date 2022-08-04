@@ -6,7 +6,6 @@ import UIInput from "@ui/UIInput/UIInput";
 import styles from "./Search.module.css";
 
 const SearchContainer = ({ inputValue, handleInputChange, foundedTeams, handleActiveChange, inputIsActive }) => {
-    console.log();
     return (
         <>
             <UIInput
