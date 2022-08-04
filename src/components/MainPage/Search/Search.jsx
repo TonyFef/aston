@@ -34,7 +34,7 @@ const Search = ({ setFetchError }) => {
     }, []);
 
     const debouncedGetResponse = useCallback(
-        debounce((value) => getResponse(value), 300),
+        debounce((value) => getResponse(value), 200),
         []
     );
 

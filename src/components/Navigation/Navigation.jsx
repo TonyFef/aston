@@ -1,4 +1,10 @@
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+
 import { useImage, IMAGE_LOGO, IMAGE_BRYANT, IMAGE_JORDAN, IMAGE_LEBRON, IMAGE_CURRY } from "@context/BgImageProvider";
+import NavigationContainer from "./NavigationContainer";
+
+import { getLocalStorage } from "@utils/localStorage";
 
 import logo from "@images/logo.png";
 import bryant from "@images/bryant.png";
@@ -6,12 +12,10 @@ import curry from "@images/curry.png";
 import jordan from "@images/jordan.png";
 import lebron from "@images/lebron.png";
 
-import { useEffect, useState } from "react";
-import NavigationContainer from "./NavigationContainer";
-
 const Navigation = ({ isLogin }) => {
     const [icon, setIcon] = useState(logo);
 
+    const storeDataUserLogin = getLocalStorage("user").email;
     const isImage = useImage();
 
     useEffect(() => {
@@ -38,9 +42,13 @@ const Navigation = ({ isLogin }) => {
 
     return (
         <>
-            <NavigationContainer icon={icon} isLogin={isLogin} />
+            <NavigationContainer icon={icon} isLogin={isLogin} storeDataUserLogin={storeDataUserLogin} />
         </>
     );
+};
+
+Navigation.propTypes = {
+    isLogin: PropTypes.bool,
 };
 
 export default Navigation;

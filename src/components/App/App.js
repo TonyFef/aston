@@ -2,8 +2,6 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
-import { getLocalStorage } from "@utils/localStorage";
-
 import PlayersPage from '@pages/PlayersPage/PlayersPage';
 import LoginPage from '@pages/LoginPage/LoginPage';
 import SignupPage from '@pages/SignupPage/SignupPage';
@@ -16,6 +14,7 @@ import PersonPage from '@pages/PersonPage/PersonPage';
 import TeamPage from '@pages/TeamPage/TeamPage';
 
 import styles from './App.module.css'
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 
 const App = () => {
   const storeData = useSelector((state) => state.isLogin);
@@ -24,24 +23,91 @@ const App = () => {
   return (
     <div className={styles.header}>
       <Navigation isLogin={storeData} />
+
       <Routes>
         {storeData ? (
           <>
-            <Route path='/' exact='true' element={<MainPage />} />
-            <Route path='/players' exact='true' element={<PlayersPage />} />
-            <Route path='/players/:id' exact='true' element={<PersonPage />} />
-            <Route path='/teams/:id' exact='true' element={<TeamPage />} />
-            <Route path='/favourites' exact='true' element={<FavouritesPage />} />
-            <Route path='/history' exact='true' element={<HistoryPage />} />
-            <Route path='*' exact='false' element={<Navigate to="/" replace />} />
-            {/* <Route path='/login' exact='true' element={<VerificationPage />} /> */}
+            <Route path='/' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <MainPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='/players' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <PlayersPage />
+                </ErrorBoundary>
+              </>
+            } />
+
+            <Route path='/players/:id' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <PersonPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='/teams/:id' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <TeamPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='/favourites' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <FavouritesPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='/history' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <HistoryPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='*' exact='false' element={
+              <>
+                <ErrorBoundary>
+                  <Navigate to="/" replace />
+                </ErrorBoundary>
+              </>
+            } />
           </>
         ) : (
           <>
-            <Route path='/' exact='true' element={<StartPage />} />
-            <Route path='/login' exact='true' element={<LoginPage />} />
-            <Route path='/signup' exact='true' element={<SignupPage />} />
-            <Route path='*' exact='false' element={<Navigate to="/" replace />} />
+            <Route path='/' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <StartPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='/login' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <LoginPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='/signup' exact='true' element={
+              <>
+                <ErrorBoundary>
+                  <SignupPage />
+                </ErrorBoundary>
+              </>
+            } />
+            <Route path='*' exact='false' element={
+              <>
+                <ErrorBoundary>
+                  <Navigate to="/" replace />
+                </ErrorBoundary>
+              </>
+            } />
           </>
         )
         }
