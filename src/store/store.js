@@ -29,10 +29,10 @@ export const store = configureStore({
 store.subscribe(() => {
     // setLocalStorage('favourites', store.getState(userSlice).favourites)
     setLocalStorage('favourites', store.getState(favouriitesSlice).favourites)
-    // setLocalStorage('history', store.getState(historySlice).history)
+    setLocalStorage('history', store.getState(historySlice).history)
     setLocalStorage('user', store.getState(userSlice).user)
     setLocalStorage('users', store.getState(signedUsersSlice).users)
-    console.log(store.getState(historySlice).history);
+    // console.log(store.getState(historySlice).history);
     setLocalStorage('isLogin', store.getState(loginSlice).isLogin)
     setLocalStorage('userInfo', store.getState(userInfoSlice).userInfo)
 })

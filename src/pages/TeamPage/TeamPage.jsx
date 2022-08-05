@@ -20,10 +20,6 @@ const TeamPage = ({ setFetchError }) => {
     const urlArray = window.location.href.split("/");
     const id = urlArray[urlArray.length - 1];
 
-    console.log(id);
-
-    dispatch(setHistoryTeam(id));
-
     useEffect(() => {
         (async () => {
             const res = await getSpecificTeam(`${urlTeams}/${id}/`, options);
@@ -37,6 +33,14 @@ const TeamPage = ({ setFetchError }) => {
                     { title: "Division", data: res.division },
                 ]);
                 setTeamNickname(res.name);
+
+                // console.log(res);
+
+                dispatch(
+                    setHistoryTeam({
+                        [id]: { name: res.abbreviation},
+                    })
+                );
 
                 setFetchError(false);
             } else {
