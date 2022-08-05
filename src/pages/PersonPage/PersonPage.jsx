@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
+import { setHistoryPlayer } from "@store/slices/historySlice";
 import { getSpecificPlayer } from "@utils/network";
 import { options, API_PERSON } from "@env/api";
 import { withFetchError } from "@hoc/withFetchError";
@@ -16,6 +17,8 @@ const PersonPage = ({ setFetchError }) => {
     const [personName, setPersonName] = useState(null);
     const [personTeam, setPersonTeam] = useState(null);
     const [personIsLiked, setPersonIsLiked] = useState(false);
+
+    const dispatch = useDispatch();
 
     const storeData = useSelector((state) => state.favourites);
 
@@ -38,6 +41,12 @@ const PersonPage = ({ setFetchError }) => {
                     { title: "Abbreviation", data: res.team.abbreviation },
                     { title: "teamName", data: res.team.name },
                 ]);
+
+                dispatch(
+                    setHistoryPlayer({
+                        [id]: { name: `${res.first_name} ${res.last_name}`, id: res.id, teamName: res.team.name },
+                    })
+                );
 
                 setPersonId(id);
                 setPersonName(`${res.first_name} ${res.last_name}`);

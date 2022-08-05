@@ -11,15 +11,28 @@ const historySlice = createSlice({
         setHistoryTeam(state, action) {
             const payload = action.payload
             return state = {
+                ...state,
                 teams: {
                     ...state.teams, ...action.payload
                 }
             }
         },
+        setTeamsToHistory(state, action) {
+            return { ...action.payload }
+        },
+        setHistoryPlayer(state, action) {
+            const payload = action.payload
+            return state = {
+                ...state,
+                players: {
+                    ...state.players, ...action.payload
+                }
+            }
+        },
         removeHistory(state) {
-            return state = {}
+            return {}
         },
     }
 })
 export default historySlice.reducer
-export const { setHistoryTeam, removeHistory } = historySlice.actions
+export const { setHistoryTeam, setTeamsToHistory, setHistoryPlayer, removeHistory } = historySlice.actions

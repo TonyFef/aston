@@ -34,8 +34,6 @@ const TeamPage = ({ setFetchError }) => {
                 ]);
                 setTeamNickname(res.name);
 
-                // console.log(res);
-
                 dispatch(
                     setHistoryTeam({
                         [id]: { name: res.abbreviation},

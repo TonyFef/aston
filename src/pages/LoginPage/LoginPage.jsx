@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { login } from "@store/slices/loginSlice";
 import { setPlayersToFavourite } from "@store/slices/favouriitesSlice";
+import { setTeamsToHistory } from "@store/slices/historySlice";
 import { getLocalStorage } from "@utils/localStorage";
 import Verification from "@components/Verification/Verification";
 
@@ -16,9 +17,10 @@ const LoginPage = () => {
         const checkAllUsersArray = allUsersInfo.filter(({ user }) => {
             return user.email === storeDataUser.email && user.password === storeDataUser.password;
         });
-
+        console.log(checkAllUsersArray);
         if (checkAllUsersArray.length === 1) {
             dispatch(setPlayersToFavourite(checkAllUsersArray[0].favourites));
+            dispatch(setTeamsToHistory(checkAllUsersArray[0].history));
             dispatch(login());
         } else {
             const checkStoreDataUsersArray = storeDataUsers.filter((item) => {

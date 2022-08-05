@@ -16,15 +16,7 @@ export const playersApi = createApi({
                 const teamNickname = teamNicknameArray[teamNicknameArray.length - 1];
                 return { name: item.full_name, nickName: teamNickname, id: item.id }
             })),
-            // transformResponse: (response) => (response),
-        }),
-        // searchTeams: build.query({
-        //     query: () => ({
-        //         url: "teams",
-        //         ...options
-        //     }),
-        //     // transformResponse: (response) => response.response,
-        // }),
+        })
     })
 })
 

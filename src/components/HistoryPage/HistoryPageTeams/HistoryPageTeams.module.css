@@ -5,10 +5,6 @@
     width: 50%;
     float: left;
 }
-.history__players {
-    width: 50%;
-    float: right;
-}
 .searched__container {
     display: grid;
     grid-template-columns: repeat(3, 230px);
