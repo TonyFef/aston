@@ -5,12 +5,9 @@ import SwitchTeam from "../../PlayersPage/PlayersList/SwitchTeam";
 import noResults from "@images/noresults.gif";
 import Spinner from "../../Spinner/Spinner";
 
-
-
 import styles from "./SearchPageList.module.css";
 
 const SearchPageList = ({ teams, inputIsActive }) => {
-    
     return (
         <>
             {teams && teams.length ? (
@@ -21,13 +18,7 @@ const SearchPageList = ({ teams, inputIsActive }) => {
 
                         return (
                             <li className={styles.searched__team} key={id}>
-                                <Link to={`/teams/${id}`}
-                                // {dispatch(
-    //     setHistory({
-    //         [id]: { name, team },
-    //     })
-    // );}
-    >
+                                <Link to={`/teams/${id}`}>
                                     {SwitchTeam(teamNickname)}
                                     <p className={styles.searched__team__name}>{full_name}</p>
                                 </Link>

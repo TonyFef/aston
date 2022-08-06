@@ -1,0 +1,34 @@
+.history__players {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    float: left;
+}
+.history__players {
+    width: 50%;
+    float: right;
+}
+.searched__container {
+    display: grid;
+    grid-template-columns: repeat(3, 230px);
+    column-gap: 70px;
+    row-gap: 30px;
+}
+.searched__player {
+    width: 200px;
+    background-color: grey;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s transform;
+    width: 190px;
+    margin: var(--spacing-medium);
+    border-radius: 5px;
+}
+.searched__header {
+    min-width: 100%;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}

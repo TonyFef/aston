@@ -1,19 +1,17 @@
-// import PropTypes from "prop-types";
-
-import HistoryPageList from "../../components/HistoryPageList/HistoryPageList";
+import HistoryPageTeams from "@components/HistoryPage/HistoryPageTeams";
+import HistoryPagePlayers from "@components/HistoryPage/HistoryPagePlayers/HistoryPagePlayers";
 
 import styles from "./HistoryPage.module.css";
 
 const HistoryPage = () => {
     return (
         <>
-            <HistoryPageList />
+            <div className={styles.history__wrapper}>
+                <HistoryPageTeams />
+                <HistoryPagePlayers />
+            </div>
         </>
     );
 };
-
-// HistoryPage.propTypes = {
-//     test: PropTypes.string,
-// };
 
 export default HistoryPage;

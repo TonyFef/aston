@@ -5,6 +5,7 @@ import { logout } from "@store/slices/loginSlice";
 import { removeUser } from "@store/slices/userSlice";
 import { rememberNewUser } from "@store/slices/userInfoSlice";
 import { deleteFavourites } from "@store/slices/favouriitesSlice";
+import { removeHistory } from "@store/slices/historySlice";
 import LogOutContainer from "./LogOutContainer";
 import { getLocalStorage } from "@utils/localStorage";
 
@@ -25,12 +26,11 @@ const LogOut = () => {
         const newUser = { user: storeDataUser, favourites: storeDataFavourites, history: storeDataHistory };
         const newList = [...arr, newUser];
 
-        console.log(newList);
-
         dispatch(rememberNewUser(newList));
         dispatch(logout());
         dispatch(removeUser());
         dispatch(deleteFavourites());
+        dispatch(removeHistory());
     };
     return <LogOutContainer onlogoutHandler={onlogoutHandler} />;
 };
