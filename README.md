@@ -40,4 +40,4 @@
 ## `2 level`
 
 -  Подключен storybook и созданы несколько сторисов <br>
-   [**Storybook**](https://github.com/TonyFef/aston/blob/main/src/store/store.js)
+   [**Storybook**](https://github.com/TonyFef/aston/blob/main/src/components/UI/UIInput/UIInput.stories.js)
