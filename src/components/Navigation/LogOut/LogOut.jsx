@@ -13,6 +13,7 @@ const LogOut = () => {
 
     const storeDataUser = useSelector((state) => state.user);
     const storeDataFavourites = useSelector((state) => state.favourites);
+    const storeDataHistory = useSelector((state) => state.history);
 
     const onlogoutHandler = () => {
         const allUsersInfo = getLocalStorage("userInfo");
@@ -21,10 +22,12 @@ const LogOut = () => {
             return user.email !== storeDataUser.email;
         });
 
-        const newUser = { user: storeDataUser, favourites: storeDataFavourites }
-        const newList = [...arr, newUser]
+        const newUser = { user: storeDataUser, favourites: storeDataFavourites, history: storeDataHistory };
+        const newList = [...arr, newUser];
 
-        dispatch(rememberNewUser(newList))
+        console.log(newList);
+
+        dispatch(rememberNewUser(newList));
         dispatch(logout());
         dispatch(removeUser());
         dispatch(deleteFavourites());
